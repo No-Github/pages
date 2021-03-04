@@ -1,5 +1,5 @@
 ---
-title: "f8x 开发日计"
+title: "f8x 开发记录"
 date: 2021-03-02T23:08:03+08:00
 draft: false
 author: "r0fus0d"
