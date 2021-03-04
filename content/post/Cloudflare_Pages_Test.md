@@ -20,18 +20,21 @@ author: "r0fus0d"
 
 已经给 cloudflare pages 应用配置存储库访问权限,都能选择私有仓库了,结果无法 clone
 
-但关键问题是,其无法 clone 的表现是显示一直在排队
+但关键问题是,其无法 clone 的表现是显示一直在排队,在第二天早上我发现已经排了将近10个小时,改为公开仓库才得以解决
 
-截至我写完这个文章,该问题已经被解决,真的弱智
+这个问题在去年年底就存在
+
+![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/10.png)
+
+截至我写完这个文章,该问题好像已经被修复,私有仓库也可以 clone
 
 ---
 
 # 不支持子目录中带 .git 目录
 
+以 hugo 为例,在 themes 目录下 clone 一个主题,该主题文件夹是肯定会存在 .git 目录的,但 cloudflare pages 在 clone 你的仓库时,会 clone 失败
 
-
-
-
+需要手动删除 themes 目录下主题的 .git 目录
 
 ---
 
@@ -64,6 +67,10 @@ author: "r0fus0d"
 在测试第一个项目时绑定了 r0fus0d.ffffffff0x.com 域名,但删除第一个项目后,看上去绑定关系还是存在,dns记录中也并没有记录,这种情况下 pages 中域名就不能被使用了
 
 ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/4.png)
+
+搜了下,同样有人也遇到了这个问题
+
+![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/9.png)
 
 没有办法,换个子域名,接下来又是个小坑
 
