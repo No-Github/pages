@@ -10,7 +10,9 @@ author: "r0fus0d"
 
 <!--more-->
 
-> 本文来源于我的笔记项目中,后续有更新内容可见 https://github.com/No-Github/1earn/blob/master/1earn/Integrated/Windows/%E7%AC%94%E8%AE%B0/%E8%AE%A4%E8%AF%81.md
+{{% admonition info "info" %}}
+本文来源于我的笔记项目中,后续有更新内容可见 https://github.com/No-Github/1earn/blob/master/1earn/Integrated/Windows/%E7%AC%94%E8%AE%B0/%E8%AE%A4%E8%AF%81.md
+{{% /admonition %}}
 
 ---
 

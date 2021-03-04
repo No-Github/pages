@@ -10,7 +10,9 @@ author: "r0fus0d"
 
 <!--more-->
 
-> 注意,本文写于 2021.3.4,遇到的问题在未来有可能已经解决
+{{% admonition warning "warning" %}}
+注意,本文写于 2021.3.4,遇到的问题在未来有可能已经解决
+{{% /admonition %}}
 
 最近 Cloudflare Pages 开放使用,第一时间来尝尝鲜,结果遇到多个问题,下面进行下总结
 
@@ -26,7 +28,9 @@ author: "r0fus0d"
 
 ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/10.png)
 
+{{% admonition info "info" %}}
 截至我写完这个文章,该问题好像已经被修复,私有仓库也可以 clone
+{{% /admonition %}}
 
 ---
 
@@ -44,9 +48,13 @@ author: "r0fus0d"
 
 ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/8.png)
 
-不过官方文档也说明了可以自己改变量使用新版本(官方你既然知道,那为啥不把 hugo 0.54 换一换呢?)
+不过官方文档也说明了可以自己改变量使用新版本
 
 ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/6.png)
+
+{{% admonition question "question" %}}
+官方你既然知道,那为啥不把 hugo 0.54 换一换呢?
+{{% /admonition %}}
 
 改下变量,可恶,少个 .0
 

@@ -22,19 +22,140 @@ author: "r0fus0d"
 
 其中最麻烦的就是不同的包管理工具,牵扯到不同的安装命令,不同的镜像源配置方式,甚至同发行版下不同版本的源地址,包管理器进程的锁处理,贼烦
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/2.png)
+```bash
+case $Linux_Version in
+    *"CentOS"*|*"RedHat"*|*"Fedora"*)
+        yum install -y gdb 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已安装 gdb 工具\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m安装 gdb 工具失败,请查看日志 /tmp/f8x_error.log \n\033[0m"
+        ;;
+    *"Kali"*|*"Ubuntu"*|*"Debian"*)
+        apt-get install -y gdb 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已安装 gdb 工具\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m安装 gdb 工具失败,请查看日志 /tmp/f8x_error.log \n\033[0m"
+        ;;
+    *) ;;
+esac
+```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/3.png)
+```bash
+# ===================== 修改 CentOS YUM 源 =====================
+Update_CentOS_Mirror(){
+
+    case $Linux_Version_Num in
+        8)
+            rm -rf /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已备份本地 Yum 源\033[0m"
+            curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-8.repo 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已下载 aliyun Yum 源\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31maliyun Yum 源下载失败,请查看日志 /tmp/f8x_error.log \n\033[0m"
+            ;;
+        7)
+            rm -rf /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已备份本地 Yum 源\033[0m"
+            curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已下载 aliyun Yum 源\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31maliyun Yum 源下载失败,请查看日志 /tmp/f8x_error.log \n\033[0m"
+            ;;
+        6)
+            rm -rf /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已备份本地 Yum 源\033[0m"
+            curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo 1> /dev/null 2>> /tmp/f8x_error.log && echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m已下载 aliyun Yum 源\033[0m" || echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31maliyun Yum 源下载失败,请查看日志 /tmp/f8x_error.log \n\033[0m"
+            ;;
+        *)
+            echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m版本错误,此项 pass\n\033[0m"
+            ;;
+    esac
+
+}
+```
 
 f8x 工具中使用 `cat /etc/*-release | head -n 1` 来匹配发行版和具体版本,期间也使用过 `lsb_release -c` 命令,但是在 docker 环境中无法兼容,所以使用上述命令来提高兼容性
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/4.png)
+```bash
+case $(cat /etc/*-release | head -n 1) in
+    *"Kali"*|*"kali"*)
+        Linux_Version="Kali"
+        case $(cat /etc/*-release | head -n 4) in
+            *"2021"*)
+                Linux_Version_Num="kali-rolling"
+                Linux_Version_Name="buster"
+                ;;
+            *"2020"*)
+                Linux_Version_Num="kali-rolling"
+                Linux_Version_Name="buster"
+                ;;
+            *)
+                Linux_Version_Num="kali-rolling"
+                Linux_Version_Name="stretch"
+                ;;
+        esac
+        ;;
+    *"Ubuntu"*|*"ubuntu"*)
+        Linux_Version="Ubuntu"
+        case $(cat /etc/*-release | head -n 4) in
+            *"hirsute"*)
+                Linux_Version_Num="21.04"
+                Linux_Version_Name="hirsute"
+                ;;
+            *"groovy"*)
+                Linux_Version_Num="20.10"
+                Linux_Version_Name="groovy"
+                ;;
+            *"focal"*)
+                Linux_Version_Num="20.04"
+                Linux_Version_Name="focal"
+                ;;
+            *"eoan"*)
+                Linux_Version_Num="19.10"
+                Linux_Version_Name="eoan"
+                ;;
+            *"bionic"*)
+                Linux_Version_Num="18.04"
+                Linux_Version_Name="bionic"
+                ;;
+            *"xenial"*)
+                Linux_Version_Num="16.04"
+                Linux_Version_Name="xenial"
+                ;;
+            *)
+                echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m未知版本\033[0m"
+                exit 1
+                ;;
+        esac
+        ;;
+esac
+```
 
 然并卵,在部分云平台的机器中,甚至连 `/etc/*-release` 文件都没有!要么就是直接把 `/etc/*-release` 文件改的妈都不认识,说的就是你,Azure
 
 所以在后来的版本中加上了手动输入发行版的功能
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/5.png)
+```bash
+*)
+    echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m未知系统\033[0m"
+    echo -e "\033[1;33m\n请手动输入你的系统发行版 Kali[k] Ubuntu[u] Debian[d] Centos[c] RedHat[r] Fedora[f]\033[0m" && read -r input
+    case $input in
+        [kK])
+            Linux_Version="Kali" ;;
+        [uU])
+            Linux_Version="Ubuntu"
+            echo -e "\033[1;33m\n请手动输入你的系统版本号 [21.04] [20.10] [20.04] [19.10] [18.04] [16.04]\033[0m" && read -r input
+            Linux_Version_Name=$input
+            ;;
+        [dD])
+            Linux_Version="Debian"
+            echo -e "\033[1;33m\n请手动输入你的系统版本号 [11] [10] [9] [8] [7]\033[0m" && read -r input
+            Linux_Version_Name=$input
+            ;;
+        [cC])
+            Linux_Version="CentOS"
+            echo -e "\033[1;33m\n请手动输入你的系统版本号 [8] [7] [6]\033[0m" && read -r input
+            Linux_Version_Name=$input
+            ;;
+        [rR])
+            Linux_Version="RedHat" ;;
+        [fF])
+            Linux_Version="Fedora"
+            echo -e "\033[1;33m\n请手动输入你的系统版本号 [34] [33] [32]\033[0m" && read -r input
+            Linux_Version_Name=$input
+            ;;
+        *)
+            echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;31m[ERROR]\033[0m - \033[1;31m未知版本\033[0m"
+            exit 1
+            ;;
+    esac
+    ;;
+```
 
 目前我也没没有找到较好的解决方案,以 docker 官方的安装脚本 https://get.docker.com 为例,在部分 kali 是无法运行的,因为 kali 不分具体版本号,直接不兼容了🤣
 
@@ -77,7 +198,36 @@ f8x 工具中使用 `cat /etc/*-release | head -n 1` 来匹配发行版和具体
 
 事实上,在大部分选项运行时都会询问是否要走代理,这里就有一个开关的 Tricks
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/6.png)
+```bash
+# ===================== 代理开关 =====================
+Porxy_Switch(){
+
+    if test -e /tmp/IS_CI
+    then
+        echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32mIS_CI\033[0m"
+    else
+        echo -e "\033[1;33m\n>> 安装时是否需要走代理? [y/N,默认No] \033[0m" && read -r input
+        case $input in
+            [yY][eE][sS]|[Yy])
+                export GOPROXY=https://goproxy.io,direct
+                if test -e /etc/proxychains.conf
+                then
+                    echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m正在调用 Proxychains-ng\033[0m"
+                    Porxy_OK=proxychains4
+                else
+                    echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;33m[ALERT]\033[0m - \033[1;33m未检测到 Proxychains-ng,正在执行自动安装脚本\033[0m"
+                    Proxychains_Install
+                    Porxy_OK=proxychains4
+                fi
+                ;;
+            *)
+                echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32mPass~\033[0m"
+                ;;
+        esac
+    fi
+
+}
+```
 
 如果选择那么所有带 Porxy_OK 变量的命令都会自动走 proxychains4,同时该子 shell 中 go 的代理也被配置为 goproxy.io,同时如果并没有安装 proxychains4,那么会自动进行安装
 
@@ -99,7 +249,31 @@ github 提供 action 的 CI 服务, 挺好用的, 我也不用每次都开 vultr
 
 这里的锁指的是在使用包管理工具进行安装时,中断造成的问题,由于 f8x 基本不会输出任何报错信息在前台,所以有时候出现假死的状态只有手动以 bash -xv f8x 的方式运行排错,还是挺麻烦的,所以我做了个除锁模块
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/3/9.png)
+```bash
+# ===================== 除锁模块 =====================
+Rm_Lock(){
+
+    case $Linux_Version in
+        *"CentOS"*|*"RedHat"*|*"Fedora"*)
+            rm -f /var/run/yum.pid 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -f /var/cache/dnf/metadata_lock.pid 1> /dev/null 2>> /tmp/f8x_error.log
+            ;;
+        *"Kali"*|*"Ubuntu"*|*"Debian"*)
+            rm -rf /var/cache/apt/archives/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/dpkg/lock-frontend 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/dpkg/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/apt/lists/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            apt-get --fix-broken install 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/cache/apt/archives/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/dpkg/lock-frontend 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/dpkg/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            rm -rf /var/lib/apt/lists/lock 1> /dev/null 2>> /tmp/f8x_error.log
+            ;;
+        *) ;;
+    esac
+
+}
+```
 
 这里由于不同发行版锁文件都不同,依旧做了版本判断
 
