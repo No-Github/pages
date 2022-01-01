@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-08-20T21:38:52+08:00
-lastmod: 2017-08-28T21:41:52+08:00
+lastmod: 2022-01-01T21:41:52+08:00
 menu: "main"
 weight: 50
 
@@ -9,19 +9,19 @@ weight: 50
 
 ### r0fus0d
 
-- 关于我
-  - 喜欢钻研技术，懂一些安全知识。
-  - 目前在学习逆向技术和各类自动化工具开发。
+- About Me
+  - 喜欢钻研技术,懂一些安全知识。
+  - 目前正在学习 PHP 和 JAVA 相关的知识。
 
-- 我参与的项目
-  - [f8x](https://github.com/ffffffff0x/f8x) - 红/蓝队环境自动化部署工具
-  - [1earn](https://github.com/No-Github/1earn) - 个人维护的安全知识框架
+- List of Projects
+  - [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
+  - [1earn](https://github.com/No-Github/1earn) - ffffffff0x 团队维护的安全知识框架
   - [Pentest101](https://github.com/ffffffff0x/Pentest101) - 每周(也许不)分享渗透测试的知识点
   - [Dork-Admin](https://github.com/ffffffff0x/Dork-Admin) - 盘点近年来的数据泄露、供应链污染事件
-  - [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - 用于渗透测试和红队基础架构构建的 payload 和字典库
-  - [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - 一个关于数字隐私搜集、保护、清理集一体的方案,外加开源信息收集(OSINT)对抗
+  - [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - Everything for pentest.
+  - [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - Information Protection & OSINT resources
 
-- 联系我
+- Contact me
   - D2hwakH7BS5E@protonmail.com
 
 关于我的更多项目可以访问我的 [GitHub](https://github.com/No-Github).
