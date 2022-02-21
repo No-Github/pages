@@ -1,4 +1,4 @@
-baseURL = "http://0.0.0.0:8080/"
+baseURL = "https://r0fus0d.blog.ffffffff0x.com/"
 languageCode = "zh-CN"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "r0fus0d 的博客"
@@ -161,7 +161,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     options = ""            # default: "{theme: 'simple'}"
 
   [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
-    enable = true
+    enable = false
     siteUV = true
     sitePV = true
     pagePV = true
