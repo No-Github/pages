@@ -14,7 +14,7 @@ author: "r0fus0d & Lorna Dane"
 
 # 内存获取
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/100.png)
+![](../../img/Memory-Forensics/100.png)
 
 这个步骤是从目标机器中导出内存。完整的内存数据包括两部分: 物理内存数据和页面交换文件数据. 物理内存通常是一个特殊的内核对象, 比如, 在 Windows 系统中, 物理内存是内核内存区对象, 即 `\\Device\\PhysicalMemory`; 在 Unix/Linux 系统中, 物理内存为 `/dev/mem` 和 `/dev/kmem`. 只要能读取该内核对象, 就能获取物理内存数据.
 
@@ -112,7 +112,7 @@ cat hiberfil.sys | tr -d '\0' | read -n 1 || echo "All null bytes"
 
 MEMORY.DMP 文件是 Windows 操作系统中的内存转储文件，当 Windows 发生错误蓝屏的时候，系统将当前内存（含虚拟内存）中的数据直接写到文件中去，方便定位故障原因。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/0.png)
+![](../../img/Memory-Forensics/0.png)
 
 ---
 
@@ -528,7 +528,7 @@ linux_tmpfs         # tmpfs 的内容。
 volatility -f [image] imageinfo
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/1.png)
+![](../../img/Memory-Forensics/1.png)
 
 这其中比较有用的信息就是 Suggested Profile(s) ，这个是工具识别的系统版本，存在多个的原因是这是根据一些特征识别的，所以可能有误报，就把各种结果按照可能性排列出来了，一般直接选择第一个，如果加载插件报错的话，可以尝试后面的。
 
@@ -541,7 +541,7 @@ volatility -f [image] imageinfo
 volatility -f [image] --profile=[profile] pslist
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/2.png)
+![](../../img/Memory-Forensics/2.png)
 
 如图中 lsass.exe、winlogon.exe ,在 windows 本地登录时，用户的密码存储在 `%SystemRoot%\system32\config\SAM` 这个文件里。当用户输入密码进行本地认证的过程中，所有的操作都是在本地进行的。他其实就是将用户输入的密码转换为 NTLM Hash，然后与 SAM 中的 NTLM Hash 进行比较。当用户注销、重启、锁屏后，操作系统会让 winlogon 显示登录界面，也就是输入框。当 winlogon.exe 接收输入后，将密码交给 lsass 进程，这个进程中会存一份明文密码，将明文密码加密成 NTLM Hash，对 SAM 数据库比较认证。
 
@@ -559,16 +559,16 @@ python vol.py -f [image] --profile=[profile] psscan --output=dot --output-file=o
 apt install -y xdot
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/29.png)
+![](../../img/Memory-Forensics/29.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/30.png)
+![](../../img/Memory-Forensics/30.png)
 
 **把进程以树的形式显示**
 ```bash
 volatility -f [image] --profile=[profile] pstree
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/23.png)
+![](../../img/Memory-Forensics/23.png)
 
 **查看 DLL 文件**
 
@@ -577,7 +577,7 @@ volatility -f [image] --profile=[profile] pstree
 volatility -f [image] --profile=[profile] dlllist -p [pid]
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/24.png)
+![](../../img/Memory-Forensics/24.png)
 
 **转储出可寻址的内存数据**
 
@@ -589,7 +589,7 @@ volatility -f [image] --profile=[profile] dlllist -p [pid]
 volatility -f [image] --profile=[profile] memdump -p [pid] --dump-dir ./
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/9.png)
+![](../../img/Memory-Forensics/9.png)
 
 将获取到的 2276.dmp 文件改名为 2276.data，然后在 gime 中点击显示全部文件，选择 2276.data 打开
 ```bash
@@ -604,13 +604,13 @@ mv 2276.dmp 2276.data
 
 微调位移为图像的左右方向平移，大幅调节位移则是图像的上下方向平移。而宽度不变时，始终显示的都是同一幅图像。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/10.png)
+![](../../img/Memory-Forensics/10.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/11.png)
+![](../../img/Memory-Forensics/11.png)
 
 在调节时，不仅仅只能看到画图程序的图片，如下图，就调出了另一个状态的一个系统图片
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/12.png)
+![](../../img/Memory-Forensics/12.png)
 
 **获取运行过的命令**
 
@@ -620,7 +620,7 @@ mv 2276.dmp 2276.data
 volatility -f [image] --profile=[profile] cmdscan
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/13.png)
+![](../../img/Memory-Forensics/13.png)
 
 可以看到执行了 whoami、ifconfig、ipconfig 这三个命令
 
@@ -629,7 +629,7 @@ volatility -f [image] --profile=[profile] cmdscan
 volatility -f [image] --profile=[profile] cmdline
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/25.png)
+![](../../img/Memory-Forensics/25.png)
 
 ---
 
@@ -643,7 +643,7 @@ volatility -f [image] --profile=[profile] notepad
 
 volatility -f [image] --profile=[profile] editbox
 ```
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/8.png)
+![](../../img/Memory-Forensics/8.png)
 
 **查看当前桌面截图**
 
@@ -652,16 +652,16 @@ volatility -f [image] --profile=[profile] editbox
 volatility -f [image] --profile=[profile] screenshot --dump-dir ./
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/4.png)
+![](../../img/Memory-Forensics/4.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/3.png)
+![](../../img/Memory-Forensics/3.png)
 
 **获取系统中的用户以及密码**
 ```bash
 volatility -f [image] --profile=[profile] hashdump
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/6.png)
+![](../../img/Memory-Forensics/6.png)
 
 **查看剪切版中的信息**
 ```bash
@@ -684,14 +684,14 @@ volatility -f [image] --profile=[profile] yarascan
 volatility -f [image] --profile=[profile] filescan | grep -E "zip|txt|doc|pdf"
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/14.png)
+![](../../img/Memory-Forensics/14.png)
 
 查看桌面的文件
 ```bash
 volatility -f [image] --profile=[profile] filescan | grep  "Desktop"
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/15.png)
+![](../../img/Memory-Forensics/15.png)
 
 **dump 扫描到的文件**
 
@@ -702,20 +702,20 @@ volatility -f [image] --profile=[profile] dumpfiles -Q 0x000000007de00130 --dump
 # 这里的 -Q 参数是前面扫描时候的第一个参数，标记了文件的转储的物理地址
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/16.png)
+![](../../img/Memory-Forensics/16.png)
 
 dump 出的文件默认是 dat 后缀的，可以使用 linux 下的 file 命令来查看获取的文件类型，或者是根据之前扫描文件获取到的文件名来修改后缀
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/17.png)
+![](../../img/Memory-Forensics/17.png)
 
 **转储内存中的进程里 exe 文件**
 ```bash
 volatility -f [image] --profile=[profile] procdump -p [pid] --dump-dir ./
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/18.png)
+![](../../img/Memory-Forensics/18.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/19.png)
+![](../../img/Memory-Forensics/19.png)
 
 ---
 
@@ -726,7 +726,7 @@ volatility -f [image] --profile=[profile] procdump -p [pid] --dump-dir ./
 volatility -f [image] --profile=[profile] netscan
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/22.png)
+![](../../img/Memory-Forensics/22.png)
 
 ---
 
@@ -737,14 +737,14 @@ volatility -f [image] --profile=[profile] netscan
 volatility -f [image] --profile=[profile] printkey -K "SAM\Domains\Account\Users\Names"
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/7.png)
+![](../../img/Memory-Forensics/7.png)
 
 **列出注册表配置文件中的注册表信息**
 ```bash
 volatility -f [image] --profile=[profile] hivelist
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/20.png)
+![](../../img/Memory-Forensics/20.png)
 
 **打印内存中指定的注册表信息**
 ```bash
@@ -752,7 +752,7 @@ volatility -f [image] --profile=[profile] hivedump -o 0xfffff8a000bff010
 # -o 跟虚拟地址
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/21.png)
+![](../../img/Memory-Forensics/21.png)
 
 ---
 
@@ -807,7 +807,7 @@ mv centos7.zip /pentest/volatility/plugins/overlays/linux/
 python vol.py --info | grep "centos7"
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/26.png)
+![](../../img/Memory-Forensics/26.png)
 
 
 **实战 linux 分析**
@@ -819,7 +819,7 @@ python vol.py --info | grep "centos7"
 python vol.py -f tmp.vmem --profile=Linuxcentos7x64 linux_pstree
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/27.png)
+![](../../img/Memory-Forensics/27.png)
 
 显示网络接口详细情况
 
@@ -827,7 +827,7 @@ python vol.py -f tmp.vmem --profile=Linuxcentos7x64 linux_pstree
 python vol.py -f tmp.vmem --profile=Linuxcentos7x64 linux_pstree
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/28.png)
+![](../../img/Memory-Forensics/28.png)
 
 查看某具体进程的情况
 
@@ -968,28 +968,28 @@ python3 vol.py -f [image] layerwriter
 python3 vol.py -f [image] windows.info
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/31.png)
+![](../../img/Memory-Forensics/31.png)
 
 **windows.pslist**
 ```
 python3 vol.py -f [image] windows.pslist
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/32.png)
+![](../../img/Memory-Forensics/32.png)
 
 **windows.hashdump**
 ```
 python3 vol.py -f [image] windows.hashdump
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/33.png)
+![](../../img/Memory-Forensics/33.png)
 
 **windows.filescan**
 ```
 python3 vol.py -f [image] windows.filescan
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/34.png)
+![](../../img/Memory-Forensics/34.png)
 
 ## Symbol Tables
 
@@ -1064,13 +1064,13 @@ python3 vol.py -vvvv -s volatility3/framework/symbols/linux/ isfinfo
 python3 vol.py isfinfo --isf /pentest/volatility3/volatility3/framework/symbols/linux/Ubuntu1804.json
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/35.png)
+![](../../img/Memory-Forensics/35.png)
 
 ```
 python3 vol.py -vvvv -f cyq.vmem banners
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/36.png)
+![](../../img/Memory-Forensics/36.png)
 
 即使输出与 banner 匹配, 实际运行依旧失败, 此 issues https://github.com/volatilityfoundation/volatility3/issues/413 具有同样问题, 等待软件后续更新解决把
 
@@ -1080,11 +1080,11 @@ python3 vol.py -vvvv -c /pentest/volatility3/volatility3/framework/symbols/linux
 python3 vol.py -vvvv -s volatility3/framework/symbols/linux/ -f cyq.vmem linux.bash.Bash
 ```
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/37.png)
+![](../../img/Memory-Forensics/37.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/38.png)
+![](../../img/Memory-Forensics/38.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/39.png)
+![](../../img/Memory-Forensics/39.png)
 
 ### 以 CentOS7 为例
 
@@ -1116,13 +1116,13 @@ make
 
 make 的时候可能会出现出现一点问题。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/40.png)
+![](../../img/Memory-Forensics/40.png)
 
 这个原因就是系统自身的内核版本和 kernel-devel 安装的内核不匹配，我这台安装的内核为 `3.10.0-1160.15.2.el7.x86_64`，但是使用 `uname -r` 查到的内核版本为 `3.10.0-957.el7.x86_64`，所以使用 `yum upgrade` 升级内核并重启即可解决。
 
 重新编译会生成一个名字和内核版本相同的. ko 文件。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/41.png)
+![](../../img/Memory-Forensics/41.png)
 
 接下来使用 lime 工具导出内存文件.
 
@@ -1132,7 +1132,7 @@ insmod ./lime-3.10.0-1160.15.2.el7.x86_64.ko "path=/root/centos.lime format=lime
 
 “./” 后面输入刚刚生成的 `.ko` 文件
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/42.png)
+![](../../img/Memory-Forensics/42.png)
 
 可以看到文件大小非常接近于8G。
 
@@ -1144,7 +1144,7 @@ insmod ./lime-3.10.0-1160.15.2.el7.x86_64.ko "path=/root/centos.lime format=lime
 
 根据项目说明，可以采用四种方式来生成符号表(json文件)。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/43.png)
+![](../../img/Memory-Forensics/43.png)
 
 这里我们就选用第一种。然而，使用第一种的话需要 vmlinux 文件，而这 centos 中原本是没有的，所以需要安装。
 
@@ -1154,17 +1154,17 @@ sudo debuginfo-install kernel
 
 在安装完成之后可以查找 vmlinux 文件
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/44.png)
+![](../../img/Memory-Forensics/44.png)
 
 然后使用 dwarf2json 工具即可导出符号表文件。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/45.png)
+![](../../img/Memory-Forensics/45.png)
 
 **kali 分析机 vol3 安装以及使用**
 
 打开 kail，使用 f8x 一键安装 volatility3。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/46.png)
+![](../../img/Memory-Forensics/46.png)
 
 - https://github.com/ffffffff0x/f8x
 
@@ -1182,47 +1182,47 @@ python3 vol.py -f centos.lime linux.bash
 
 可以看到我在 centos 中所输入的历史命令
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/47.png)
+![](../../img/Memory-Forensics/47.png)
 
 linux.check_idt.Check_idt
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/48.png)
+![](../../img/Memory-Forensics/48.png)
 
 linux.check_syscall.Check_syscall
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/49.png)
+![](../../img/Memory-Forensics/49.png)
 
 linux.elfs.Elfs
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/50.png)
+![](../../img/Memory-Forensics/50.png)
 
 linux.lsmod.Lsmod
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/51.png)
+![](../../img/Memory-Forensics/51.png)
 
 linux.lsof.Lsof
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/52.png)
+![](../../img/Memory-Forensics/52.png)
 
 linux.malfind.Malfind
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/53.png)
+![](../../img/Memory-Forensics/53.png)
 
 linux.proc.Maps
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/54.png)
+![](../../img/Memory-Forensics/54.png)
 
 linux.pslist.PsList
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/55.png)
+![](../../img/Memory-Forensics/55.png)
 
 linux.pstree.PsTree
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/56.png)
+![](../../img/Memory-Forensics/56.png)
 
 linux.tty_check.tty_check
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/1/57.png)
+![](../../img/Memory-Forensics/57.png)
 
 ---
 

@@ -117,7 +117,7 @@ winlogon.exe -> 接收用户输入 -> lsass.exe -> 认证
 3. lsass.exe 将明文密码计算得到 NT Hash（不考虑LM）。
 4. 之后会将用户名和密码计算得到的 NT Hash 拿到 SAM 数据库去查找比对。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/1.png)
+    ![](../../img/windows-authenticate/1.png)
 
 ---
 
@@ -165,7 +165,7 @@ NTLM 协议的认证过程分为三步：
 3. 客户端收到服务端返回的 TYPE 2 消息， 读取出服务端所支持的内容，并取出其中的随机值 Challenge，用缓存的服务器端密码的哈希值 NTLM-Hash 对其进行加密，得到 Net NTLM-Hash(加密后的 Challenge)，并且将 Net NTLM-Hash 封装到 NTLM_AUTH 消息中（被称为 TYPE 3 消息， Authenticate 认证消息），发往服务端。
 4. 服务器在收到 Type3 的消息之后，用自己的密码的 NTLM-Hash 对 Challenge 进行加密，并比较自己计算出的 Net NTLM-Hash 认证消息和客户端发送的认证消息是否匹配。如果匹配，则证明客户端掌握了正确的密码，认证成功，否则认证失败。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/20.png)
+    ![](../../img/windows-authenticate/20.png)
 
 **详细过程**
 
@@ -175,9 +175,9 @@ NTLM 协议的认证过程分为三步：
 
     主要包含以下结构
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/26.png)
+    ![](../../img/windows-authenticate/26.png)
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/27.png)
+    ![](../../img/windows-authenticate/27.png)
 
 - type 2 质询
 
@@ -185,11 +185,11 @@ NTLM 协议的认证过程分为三步：
 
     主要包含以下结构
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/28.png)
+    ![](../../img/windows-authenticate/28.png)
 
     其中最主要的信息是 challenge。后面加密验证依赖于 challenge
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/29.png)
+    ![](../../img/windows-authenticate/29.png)
 
 - type 3 身份验证
 
@@ -197,7 +197,7 @@ NTLM 协议的认证过程分为三步：
 
     主要包含以下结构
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/30.png)
+    ![](../../img/windows-authenticate/30.png)
 
     这里的 Challeng 不同于 type2 的 Challenge，这里的 Challenge 是一个随机的客户端 nonce。
 
@@ -205,9 +205,9 @@ NTLM 协议的认证过程分为三步：
 
     sessionkey 是在要求进行签名的时候用的，用来进行协商加密密钥，可能有些文章会说 sessionkey 就是加密密钥，需要拥有用户 hash 才能计算出来，因此攻击者算不出来，就无法加解密包。但是想想就不可能，这个 session_key 已经在流量里面明文传输，那攻击者拿到之后不就可以直接加解密包了。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/31.png)
+    ![](../../img/windows-authenticate/31.png)
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/2.png)
+![](../../img/windows-authenticate/2.png)
 
 **注意**
 
@@ -224,7 +224,7 @@ NTLMv1 和 NTLMv2 的加密因素都是 NTLM Hash，而最显著的区别就是 
 
 设置系统使用 LM 还是 NTLM 还是 NTLMv2，需要修改 Local Security Policy 中的 LmCompatibilityLevel 选项
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/36.png)
+![](../../img/windows-authenticate/36.png)
 
 ---
 
@@ -256,7 +256,7 @@ v2 将 Unicode 后的大写用户名与 Unicode 后的身份验证目标（在 T
 
 建一个 blob 信息
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/32.png)
+![](../../img/windows-authenticate/32.png)
 
 使用 16 字节 NTLMv2 哈希作为密钥，将 HMAC-MD5 消息认证代码算法加密一个值(来自 type 2 的 Challenge 与 Blob 拼接在一起)。得到一个 16 字节的 NTProofStr。
 
@@ -272,17 +272,17 @@ Net-ntlm hash v2 的格式为：
 
 下面演示从 response 里面提取 NTLMv2
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/33.png)
+![](../../img/windows-authenticate/33.png)
 
 这里的 challenge 是 type2 服务器返回的 challenge 不是 type3 流量包里面的 client Challenge
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/34.png)
+![](../../img/windows-authenticate/34.png)
 
 就是 18f77b6fe9f8d876
 
 HMAC-MD5 对应数据包中的 NTProofSt : 0ecfccd87d3bdb81713dc8c07e6705b6
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/35.png)
+![](../../img/windows-authenticate/35.png)
 
 blob 就是 response 减去 NTProofStr。(因为在计算 response 的时候，response 就是由 NTProofStr 加上 blob)
 
@@ -317,7 +317,7 @@ Administrator::DESKTOP-QKM4NK7:18f77b6fe9f8d876:0ecfccd87d3bdb81713dc8c07e6705b6
 
 6. 服务器根据 DC 返回的结果，对客户端进行回复。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/21.png)
+    ![](../../img/windows-authenticate/21.png)
 
 抓包过程见 [Wireshark笔记](../../../Security/实验/BlueTeam/流量分析.md#ntlm-域) 案例中 域环境中NTLM认证方式 部分
 
@@ -345,7 +345,7 @@ SSPI 的实现者，对 SSPI 相关功能函数的具体实现。微软自己实
 
 我们抓包分析 ntlm 的时候，就会看到 ntlm 是放在 GSS-API 里面
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/37.png)
+![](../../img/windows-authenticate/37.png)
 
 为啥这里会出现 GSSAPI 呢，SSPI 是 GSSAPI 的一个专有变体，进行了扩展并具有许多特定于 Windows 的数据类型。SSPI 生成和接受的令牌大多与 GSS-API 兼容。所以这里出现 GSSAPI 只是为了兼容，我们可以不必理会。可以直接从 NTLM SSP 开始看起。注册为 SSP 的一个好处就是，SSP 实现了了与安全有关的功能函数，那上层协议(比如 SMB)在进行身份认证等功能的时候，就可以不用考虑协议细节，只需要调用相关的函数即可。而认证过程中的流量嵌入在上层协议里面。不像 kerbreos，既可以镶嵌在上层协议里面，也可以作为独立的应用层协议。ntlm 是只能镶嵌在上层协议里面，消息的传输依赖于使用 ntlm 的上层协议。比如镶嵌在 SMB 协议里,或镶嵌在 HTTP 协议。
 
@@ -367,7 +367,7 @@ Kerberos 是一种计算机网络授权协议，用来在非安全网络中，�
 
 Kerberos 协议基于对称密码学，并需要一个值得信赖的第三方。Kerberos 协议的扩展可以为认证的某些阶段提供公钥密码学支持。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/3.png)
+![](../../img/windows-authenticate/3.png)
 
 ---
 
@@ -381,7 +381,7 @@ Kerberos 认证用于域环境中，它是一种基于票据（Ticket）的认�
 
 Kerberos 认证过程如下:
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/25.png)
+![](../../img/windows-authenticate/25.png)
 
 1. client 向 kerberos 服务请求，希望获取访问 server 的权限。 kerberos 得到了这个消息，首先得判断 client 是否是可信赖的，也就是白名单黑名单的说法。这就是 AS 服务完成的工作，通过在 AD 中存储黑名单和白名单来区分 client。成功后，返回 AS 返回 TGT 给 client。
 
@@ -416,7 +416,7 @@ Kerberos 认证过程如下:
 
 2. 当 KDC 接收到请求之后，通过 AD 查询该用户名得到该用户的信息。通过查询得到的密码信息对 `Authenticator` 进行解密得到原始的 `Authenticator`。如果解密后的 `Authenticator` 和已知的 `Authenticator` 一致，则证明请求者提供的密码正确，即确定了登录者的真实身份。KAS 成功认证对方的身份之后，会先生成一个用用户密码加密后的用于确保该用户和 KDC 之间通信安全的 `Logon Session Key` 会话秘钥。KAS 接着为该用户创建 `TGT 认购权证`。`TGT` 主要包含两方面的内容：用户相关信息和原始 `Logon Session Key`，而整个 `TGT` 则通过 KDC 自己的密钥进行加密。最终，被不同密钥加密的 `Logon Session Key` 和 `TGT` 返回给客户端。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/22.png)
+    ![](../../img/windows-authenticate/22.png)
 
 **获得 ST 服务票据**
 
@@ -426,7 +426,7 @@ Kerberos 认证过程如下:
 
 2. TGS 接收到请求之后，通过自己的秘钥解密 `TGT` 并得到原始 `Logon Session Key`，然后通过 `Logon Session Key` 解密 `Authenticator`，进而验证了对方的真实身份。TGS 完成对客户端的认证之后，会生成一个用 `Logon Session Key` 加密后的用于确保客户端-服务器之间通信安全的 `Service Session Key` 会话秘钥。然后为该客户端生成 `ST 服务票据`。`ST 服务票据`主要包含两方面的内容：客户端用户信息和原始 `Service Session Key`，整个 `ST` 通过服务器密码派生的秘钥进行加密。最终两个被加密的 `Service Session Key` 和 `ST` 回复给客户端。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/23.png)
+    ![](../../img/windows-authenticate/23.png)
 
 **用 ST 服务票据双向认证**
 
@@ -434,13 +434,13 @@ Kerberos 认证过程如下:
 
 2. 服务器收到客户端发来的 `ST 服务票据`。但是，服务端如何确保客户端发来的 `ST 服务票据` 是通过 `TGS` 购买，而不是自己伪造的呢？这很好办，不要忘了 ST 是通过服务器自己密码派生的秘钥进行加密的。具体的操作过程是这样的，服务器在接收到请求之后，先通过自己密码派生的秘钥解密 `ST`，并从中提取 `Service Session Key`。然后通过提取出来的 `Service Session Key` 解密 `Authenticator`，进而验证了客户端的真实身份。实际上，到目前为止，服务端已经完成了对客户端的验证，但是，整个认证过程还没有结束。谈到认证，很多人都认为只是服务器对客户端的认证，实际上在大部分场合，我们需要的是双向验证（Mutual Authentication），即访问者和被访问者互相验证对方的身份。现在服务器已经可以确保客户端是它所声称的那么用户，客户端还没有确认它所访问的不是一个钓鱼服务呢。为了解决客户端对服务器的验证，服务端需要将解密后的 `Authenticator` 再次用 `Service Session Key` 进行加密，并发挥给客户端。客户端再用缓存的 `Service Session Key` 进行解密，如果和之前的内容完全一样，则可以证明自己正在访问的服务器和自己拥有相同的 `Service Session Key`。双向认证过后，开始了服务资源的访问。
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/24.png)
+    ![](../../img/windows-authenticate/24.png)
 
 ---
 
 ### 详细概括认证过程
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/4.png)
+![](../../img/windows-authenticate/4.png)
 
 当 Client 想要访问 Server 上的某个服务时，需要先向 AS 证明自己的身份，然后通过 AS 发放的 TGT 向 Server 发起认证请求，这个过程分为三块：
 
@@ -456,17 +456,17 @@ Kerberos 认证过程如下:
 
 整体过程如图
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/5.png)
+![](../../img/windows-authenticate/5.png)
 
 - **用户登录**
 
     用户登录阶段，通常由用户(AA)输入[用户名][密码]信息，在客户端侧，用户输入的密码信息被一个单向 Hash 函数生成 Client 密钥，即 AA 的 NTLM Hash：
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/6.png)
+    ![](../../img/windows-authenticate/6.png)
 
 - **请求身份认证**
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/7.png)
+    ![](../../img/windows-authenticate/7.png)
 
     - **客户端向 AS 发送请求认证**
 
@@ -490,7 +490,7 @@ Kerberos 认证过程如下:
 
 - **请求授权访问服务**
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/10.png)
+    ![](../../img/windows-authenticate/10.png)
 
     - **客户端向 TGS 发送请求服务授权请求**
 
@@ -521,7 +521,7 @@ Kerberos 认证过程如下:
 
 - **请求服务**
 
-    ![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/13.png)
+    ![](../../img/windows-authenticate/13.png)
 
     - **Client 向 SS(Service Server)发送服务请求**
 
@@ -577,7 +577,7 @@ PAC 的全称是 Privilege Attribute Certificate(特权属性证书)。其中所
 
 为了防止被伪造和串改，在 PAC 中包含有两个数字签名 `PAC_SERVER_CHECKSUM` 和 `PAC_PRIVSVR_CHECKSUM` ，这两个数字签名分别由 Server 端密码 HASH 和 KDC 的密码 HASH 加密。
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/14.png)
+![](../../img/windows-authenticate/14.png)
 
 正如上文所述，当用户与 KDC 之间完成了认证过程之后， 用户需要访问服务器所提供的某项服务时， 服务器为了判断用户是否具有合法的权限必须通过将用户的用户名传递给 KDC， KDC 通过得到的用户名查询用户的用户组信息，用户权限等，进而返回给服务器，服务器再将此信息与用户所索取的资源的 ACL 进行比较， 最后决定是否给用户提供相应的服务。
 
@@ -632,13 +632,13 @@ SPN 的格式：
 
 用户在 Kerberos 认证中访问服务 A 和服务 B 的过程图：
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/15.png)
+![](../../img/windows-authenticate/15.png)
 
 后改进了这种同一用户访问多服务的过程，实现了 A 服务模拟用户访问 B 服务的过程。
 
 在用户发送一个 ST(图中为 TGS)访问服务时，连同其TGT一起发送，服务 A 使用用户的 TGT 向服务B进行 ST(图中为 TGS)，进而简化了用户请求服务 B 资源时验证访问的认证过程。这种就是无约束委派（TrustedForDelegation）的过程：
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/16.png)
+![](../../img/windows-authenticate/16.png)
 
 无约束委派过程中，如果攻击者截获了 Service A 验证的 ST 和 TGT，就可以用它们访问服务 B，进而模拟管理员访问任意服务，漫游内网。
 
@@ -648,11 +648,11 @@ SPN 的格式：
 
 若服务 A 允许委派给服务B，则 A 能使用 S4U2Proxy 协议将用户发送的 TS(图中的 TGS，TGS 必须是可转发的) 再转发给域控制器认证，为用户请求访问服务 B 的 TS(图中的 TGS)。接着，服务 A 就能使用新获得的 TS(图中的 TGS）模拟用户访问服务 B:
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/17.png)
+![](../../img/windows-authenticate/17.png)
 
 上图中用户是通过 Kerberos 协议与服务 A 进行认证的，而当用户以其他方式(如 NTLM 认证，基于表单的认证等方式)与 Web 服务器进行认证后，用户是无法向 Web 服务器提供请求该服务的 TS(图中的 TGS)，因而服务器 A 也无法进一步使用 S4U2Proxy 协议请求访问服务 B。S4U2Self 协议便是解决该问题的方案，被设置为 `TrustedToAuthForDelegation` 的服务能够调用 S4U2Self 向认证服务器为任意用户请求访问自身的可转发的服务票据，此后，便可通过 S4U2Proxy 使用这张 TGS 向域控制器请求访问 B 的票据。这就是协议转换委派(S4U2Self/TrustedToAuthForDelegation)：
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/18.png)
+![](../../img/windows-authenticate/18.png)
 
 ---
 
@@ -663,7 +663,7 @@ SPN 的格式：
 - 不再需要域管理员权限设置委派，只需拥有在计算机对象上编辑 `msDS-AllowedToActOnBehalfOfOtherIdentity` 属性的权限
 - 委派功能现在可以跨域和林
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/4/19.png)
+![](../../img/windows-authenticate/19.png)
 
 基于资源的约束委派(Resource-Based Constrained Delegation)是一种允许资源自己去设置哪些账户委派给自己的约束委派。
 
