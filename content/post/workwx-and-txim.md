@@ -1,6 +1,6 @@
 ---
 title: "企业微信+腾讯IM密钥泄漏利用"
-date: 2022-01-01T23:08:03+08:00
+date: 2022-03-25T23:08:03+08:00
 draft: false
 author: "r0fus0d"
 
@@ -40,7 +40,7 @@ duration=120
     eQq8YjcgxHOtk39Xu4d脱敏脱敏脱敏脱敏脱敏脱敏脱敏klx38ULE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏
     ```
 
-![](../img/workwx-and-txim/1.png)
+![](../../img/workwx-and-txim/1.png)
 
 > access_token 的有效期通过返回的 expires_in 来传达，正常情况下为 7200 秒（2 小时），有效期内重复获取返回相同结果，过期后获取会返回新的 access_token。
 
