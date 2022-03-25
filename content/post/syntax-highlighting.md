@@ -96,7 +96,7 @@ object HelloWorld with Application {
 ```
 
 ```python
-print("Hello, World!") 
+print("Hello, World!")
 ```
 
 ```clojure
