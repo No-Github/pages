@@ -26,7 +26,7 @@ author: "r0fus0d"
 
 这个问题在去年年底就存在
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/10.png)
+![](../../img/Cloudflare_Pages_Test/10.png)
 
 {{% admonition info "info" %}}
 截至我写完这个文章,该问题好像已经被修复,私有仓库也可以 clone
@@ -46,11 +46,11 @@ author: "r0fus0d"
 
 开幕雷击,我都怀疑这开发团队是从 2019 年穿越过来的
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/8.png)
+![](../../img/Cloudflare_Pages_Test/8.png)
 
 不过官方文档也说明了可以自己改变量使用新版本
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/6.png)
+![](../../img/Cloudflare_Pages_Test/6.png)
 
 {{% admonition question "question" %}}
 官方你既然知道,那为啥不把 hugo 0.54 换一换呢?
@@ -58,15 +58,15 @@ author: "r0fus0d"
 
 改下变量,可恶,少个 .0
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/1.png)
+![](../../img/Cloudflare_Pages_Test/1.png)
 
 改用较新的 0.81.0
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/3.png)
+![](../../img/Cloudflare_Pages_Test/3.png)
 
 一番折腾后终于成功部署
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/2.png)
+![](../../img/Cloudflare_Pages_Test/2.png)
 
 ---
 
@@ -74,11 +74,11 @@ author: "r0fus0d"
 
 在测试第一个项目时绑定了 r0fus0d.ffffffff0x.com 域名,但删除第一个项目后,看上去绑定关系还是存在,dns记录中也并没有记录,这种情况下 pages 中域名就不能被使用了
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/4.png)
+![](../../img/Cloudflare_Pages_Test/4.png)
 
 搜了下,同样有人也遇到了这个问题
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/9.png)
+![](../../img/Cloudflare_Pages_Test/9.png)
 
 没有办法,换个子域名,接下来又是个小坑
 
@@ -88,8 +88,8 @@ author: "r0fus0d"
 
 这...
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/5.png)
+![](../../img/Cloudflare_Pages_Test/5.png)
 
 没办法只好改为英文了
 
-![](https://gitee.com/asdasdasd123123/pic/raw/master/blog/2/7.png)
+![](../../img/Cloudflare_Pages_Test/7.png)
