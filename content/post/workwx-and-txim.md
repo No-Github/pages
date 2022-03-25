@@ -49,7 +49,7 @@ duration=120
 
 可以看到 access_token 权限，通讯录范围 - 部门，应用权限
 
-![](../img/workwx-and-txim/2.png)
+![](../../img/workwx-and-txim/2.png)
 
 根据官方文档
 
@@ -61,7 +61,7 @@ duration=120
 https://qyapi.weixin.qq.com/cgi-bin/get_api_domain_ip?access_token=eQq8YjcgxHOtk39Xu4d30脱敏脱敏脱敏脱敏脱敏脱敏脱敏lx38ULE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏
 ```
 
-![](../img/workwx-and-txim/3.png)
+![](../../img/workwx-and-txim/3.png)
 
 **获取部门列表**
 
@@ -71,7 +71,7 @@ https://qyapi.weixin.qq.com/cgi-bin/get_api_domain_ip?access_token=eQq8YjcgxHOtk
 https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=eQq8YjcgxHOtk39Xu4d脱敏脱敏脱敏脱敏脱敏脱敏脱敏38ULE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏
 ```
 
-![](../img/workwx-and-txim/4.png)
+![](../../img/workwx-and-txim/4.png)
 
 可以看到有很多部门
 
@@ -83,7 +83,7 @@ https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token=eQq8YjcgxHOtk39
 https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=eQq8YjcgxHOtk39Xu4d30rJx0脱敏脱敏脱敏脱敏脱敏脱敏脱敏LE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏&department_id=1&&fetch_child=1
 ```
 
-![](../img/workwx-and-txim/5.png)
+![](../../img/workwx-and-txim/5.png)
 
 所有人的姓名和userid，归属部门
 
@@ -95,7 +95,7 @@ https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token=eQq8YjcgxHOtk39
 https://qyapi.weixin.qq.com/cgi-bin/user/list?access_token=eQq8YjcgxHOtk39Xu4d3脱敏脱敏脱敏脱敏脱敏脱敏脱敏ULE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏&department_id=1&fetch_child=1
 ```
 
-![](../img/workwx-and-txim/6.png)
+![](../../img/workwx-and-txim/6.png)
 
 所有人的姓名、手机号、头像、企业微信二维码、邮箱
 
@@ -109,7 +109,7 @@ https://qyapi.weixin.qq.com/cgi-bin/department/get?access_token=eQq8Yjc脱敏脱
 
 查看下子部门的详情
 
-![](../img/workwx-and-txim/7.png)
+![](../../img/workwx-and-txim/7.png)
 
 **获取加入企业二维码**
 
@@ -154,7 +154,7 @@ Content-Length: 107
 https://qyapi.weixin.qq.com/cgi-bin/checkin/getcorpcheckinoption?access_token=eQq8YjcgxHOtk39脱敏脱敏脱敏脱敏脱敏脱敏脱敏i-w6Owklx38ULE60ISuQvXMLNcsHtyNqsw3wn5hd0vM脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏
 ```
 
-![](../img/workwx-and-txim/8.png)
+![](../../img/workwx-and-txim/8.png)
 
 还有 获取员工打卡规则、获取打卡记录数据、获取打卡日报数据、获取打卡月报数据、获取打卡人员排班信息,这里就不一一测试了
 
@@ -172,7 +172,7 @@ Content-Length: 31
 }
 ```
 
-![](../img/workwx-and-txim/9.png)
+![](../../img/workwx-and-txim/9.png)
 
 还可以修改成员假期余额，这里就不测试了
 - https://developer.work.weixin.qq.com/document/path/93376
@@ -210,7 +210,7 @@ print(sig)
 eJw1zcEKgkAUheFXkVmH3hk脱敏脱敏脱敏脱敏脱敏脱敏脱敏v-gnDdJt3u9VRVZaoTpQBbaWFCqe脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏脱敏
 ```
 
-![](../img/workwx-and-txim/10.png)
+![](../../img/workwx-and-txim/10.png)
 
 生成后按照文档里描述的填写
 
