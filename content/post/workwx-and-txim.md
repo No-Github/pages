@@ -1,6 +1,6 @@
 ---
 title: "企业微信+腾讯IM密钥泄漏利用"
-date: 2022-03-25T08:08:03+08:00
+date: 2022-03-27T08:08:03+08:00
 draft: false
 author: "r0fus0d"
 
@@ -191,6 +191,8 @@ qq.live.bizid=脱敏脱敏脱敏
 ```
 
 通过查看官方文档 https://cloud.tencent.com/document/product/269/32688 UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文，首先要生成 UserSig
+
+https://github.com/tencentyun/qcloud-documents/blob/master/product/%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1/%E5%AE%9E%E6%97%B6%E9%9F%B3%E8%A7%86%E9%A2%91/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97UserSig.md
 
 https://github.com/tencentyun/tls-sig-api-v2-python
 ```bash
