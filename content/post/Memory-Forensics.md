@@ -8,11 +8,11 @@ author: "r0fus0d & Lorna Dane"
 
 在之前的文章中总结过内存取证的相关知识，本次文章是对之前的内容进行的补充和汇总。
 
-<!--more-->
-
 {{% admonition info "info" %}}
-本文来源于我的笔记项目中,后续有更新内容可见 https://github.com/ffffffff0x/1earn/blob/master/1earn/Security/BlueTeam/%E7%AC%94%E8%AE%B0/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81.md
+本文来源于我的笔记项目中,后续有更新内容可见 [内存取证.md](https://github.com/ffffffff0x/1earn/blob/master/1earn/Security/BlueTeam/%E7%AC%94%E8%AE%B0/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81.md)
 {{% /admonition %}}
+
+<!--more-->
 
 ---
 

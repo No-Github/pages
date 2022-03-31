@@ -8,11 +8,11 @@ author: "r0fus0d"
 
 本文总结关于本地认证、网络认证、域认证的相关知识
 
-<!--more-->
-
 {{% admonition info "info" %}}
-本文来源于我的笔记项目中,后续有更新内容可见 https://github.com/ffffffff0x/1earn/blob/master/1earn/Integrated/Windows/%E7%AC%94%E8%AE%B0/%E8%AE%A4%E8%AF%81.md
+本文来源于我的笔记项目中,后续有更新内容可见 [认证.md](https://github.com/ffffffff0x/1earn/blob/master/1earn/Integrated/Windows/%E7%AC%94%E8%AE%B0/%E8%AE%A4%E8%AF%81.md)
 {{% /admonition %}}
+
+<!--more-->
 
 ---
 
