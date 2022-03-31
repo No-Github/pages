@@ -1,12 +1,16 @@
 ---
 title: "企业微信+腾讯IM密钥泄漏利用"
-date: 2022-04-02T08:08:03+08:00
+date: 2022-03-31T08:08:03+08:00
 draft: false
 author: "r0fus0d"
 
 ---
 
 遇到一个 企业微信access_token 和 腾讯IM 密钥 场景,搜了下,网上似乎没有多少公开的案例分享,有的也是比较简单的,所以简单记录一下利用过程,厚码保命,理解一下
+
+{{% admonition info "info" %}}
+本文首发 先知社区 https://xz.aliyun.com/t/11092
+{{% /admonition %}}
 
 <!--more-->
 
