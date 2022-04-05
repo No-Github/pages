@@ -26,7 +26,7 @@ author: "r0fus0d"
 
 以 f8x 中的渗透工具为例，在 mac 上基本都可以安装，就算有个别确实安装不了，在 linux 虚拟机上也是可以运行的，目前 f8x 已支持在 linux arm 架构上进行安装
 
-![](../img/mac-m1/1.png)
+![](../../img/mac-m1/1.png)
 
 ---
 
@@ -34,9 +34,9 @@ author: "r0fus0d"
 
 可以，前提是你需要(购买/弄到) Parallels 虚拟机软件
 
-![](../img/mac-m1/2.png)
+![](../../img/mac-m1/2.png)
 
-![](../img/mac-m1/3.png)
+![](../../img/mac-m1/3.png)
 
 而且目前只能运行 windows11 arm 虚拟机，其他windows版本都不行
 
