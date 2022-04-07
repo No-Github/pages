@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-08-20T21:38:52+08:00
-lastmod: 2022-02-21T21:41:52+08:00
+lastmod: 2022-04-07T21:03:52+08:00
 menu: "main"
 weight: 50
 
@@ -10,8 +10,8 @@ weight: 50
 ### r0fus0d
 
 - About Me
+  - “sometimes no matter how hard you try you just have to continue trying”
   - 喜欢钻研技术,懂一些安全知识。
-  - 目前正在学习 PHP 和 JAVA 相关的知识。
 
 - List of Projects
   - [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
@@ -27,5 +27,7 @@ weight: 50
   - D2hwakH7BS5E@protonmail.com
 
 关于我的更多项目可以访问我的 [GitHub](https://github.com/No-Github).
+
+送给大家一句话 : 不要在心里砌上一个看不见的墙，再没可能的事，只要不伤筋动骨，皆可尝试一下。
 
 ![github contribution grid snake animation](https://raw.githubusercontent.com/No-Github/No-Github/output/github-contribution-grid-snake.svg)
