@@ -132,7 +132,7 @@ biu biu biu.
 
 ---
 
-## figure with class 
+## figure with class
 
 ```
 {{%/* figure src="/path/to/img.gif" title="default" alt="img" */%}}
