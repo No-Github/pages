@@ -206,3 +206,16 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 #  section = ["HTML", "RSS"]
 #  taxonomy = ["HTML", "RSS"]
 #  taxonomyTerm = ["HTML"]
+
+  # giscus（comments system)
+  [params.giscus]
+    enable = false
+    data_repo=""
+    data_repo_id=""
+    data_category=""
+    data_category_id=""
+    data_mapping=""
+    data_reactions_enabled=""
+    data_emit_metadata=""
+    data_theme=""
+    crossorigin=""
