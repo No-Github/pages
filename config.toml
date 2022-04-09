@@ -209,7 +209,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
   # giscus（comments system)
   [params.giscus]
-    enable = false
+    enable = ture
     data_repo=""
     data_repo_id=""
     data_category=""
