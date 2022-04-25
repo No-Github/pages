@@ -12,12 +12,6 @@ author: "r0fus0d"
 
 ---
 
-# 能不能打游戏
-
-不能，开windows虚拟机也勉强不了，如果要开黑玩游戏，还是用 windows
-
----
-
 # 能不能完成渗透任务
 
 可以，基本没有问题
@@ -44,6 +38,18 @@ author: "r0fus0d"
 
 ---
 
+# burp 怎么装
+
+- https://www.sqlsec.com/2019/11/macbp.html
+
+---
+
+# 怎么进行apk渗透
+
+- https://infosecwriteups.com/android-pentesting-setup-on-macbook-m1-d2f1f0a8db4b
+
+---
+
 # 刚需
 
 - 虚拟机软件 (Parallels)
@@ -58,7 +64,12 @@ author: "r0fus0d"
 国光师傅的这3篇文章介绍了 mac 系统下的一些配置优化调整，非常全，推荐
 - https://www.sqlsec.com/2022/01/monterey.html
 - https://www.sqlsec.com/2019/12/macos.html
-- https://www.sqlsec.com/2019/11/macbp.html
 
 我自己也总结了mac的使用技巧和备忘录
 - https://github.com/ffffffff0x/1earn/blob/master/1earn/Plan/Mac-Plan.md
+
+---
+
+# 能不能打游戏
+
+不能，开windows虚拟机也勉强不了，如果要开黑玩游戏，还是用 windows
