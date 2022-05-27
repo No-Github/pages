@@ -206,7 +206,7 @@ f8x -update
 
 ```bash
 # ===================== 代理开关 =====================
-Porxy_Switch(){
+Proxy_Switch(){
 
     if test -e /tmp/IS_CI
     then
@@ -219,11 +219,11 @@ Porxy_Switch(){
                 if test -e /etc/proxychains.conf
                 then
                     echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;32m[INFOR]\033[0m - \033[1;32m正在调用 Proxychains-ng\033[0m"
-                    Porxy_OK=proxychains4
+                    Proxy_OK=proxychains4
                 else
                     echo -e "\033[1;36m$(date +"%H:%M:%S")\033[0m \033[1;33m[ALERT]\033[0m - \033[1;33m未检测到 Proxychains-ng,正在执行自动安装脚本\033[0m"
                     Proxychains_Install
-                    Porxy_OK=proxychains4
+                    Proxy_OK=proxychains4
                 fi
                 ;;
             *)
@@ -235,7 +235,7 @@ Porxy_Switch(){
 }
 ```
 
-如果选择那么所有带 Porxy_OK 变量的命令都会自动走 proxychains4,同时该子 shell 中 go 的代理也被配置为 goproxy.io,同时如果并没有安装 proxychains4,那么会自动进行安装
+如果选择那么所有带 Proxy_OK 变量的命令都会自动走 proxychains4,同时该子 shell 中 go 的代理也被配置为 goproxy.io,同时如果并没有安装 proxychains4,那么会自动进行安装
 
 ---
 
