@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-08-20T21:38:52+08:00
-lastmod: 2022-04-07T21:03:52+08:00
+lastmod: 2022-07-01T21:03:52+08:00
 menu: "main"
 weight: 50
 
@@ -17,11 +17,10 @@ weight: 50
   - [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
   - [1earn](https://github.com/No-Github/1earn) - ffffffff0x 团队维护的安全知识框架
   - [Pentest101](https://github.com/ffffffff0x/Pentest101) - 每周分享渗透测试的知识点
-  - [Dork-Admin](https://github.com/ffffffff0x/Dork-Admin) - 盘点近年来的数据泄露、供应链污染事件
-  - [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - Everything for pentest.
-  - [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - Information Protection & OSINT resources
-  - [ones](https://github.com/ffffffff0x/ones) - 可用于多个网络资产测绘引擎 API 的命令行查询工具
+  - [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - 用于渗透测试的 payload 和 bypass 字典
+  - [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - 数字隐私保护与 osint 信息收集方案
   - [name-fuzz](https://github.com/ffffffff0x/name-fuzz) - 针对目标已知信息的字典生成工具
+  - [ones](https://github.com/ffffffff0x/ones) - 可用于多个网络资产测绘引擎 API 的命令行查询工具
   - [JVWA](https://github.com/ffffffff0x/JVWA) - java 代码审计学习靶场
 
 - Contact me
