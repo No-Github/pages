@@ -1,5 +1,5 @@
 ---
-title: "内存取证(总结篇)"
+title: "[技术]内存取证(总结篇)"
 date: 2021-03-02T23:08:03+08:00
 draft: false
 author: "r0fus0d & Lorna Dane"

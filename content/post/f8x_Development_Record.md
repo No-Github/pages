@@ -1,5 +1,5 @@
 ---
-title: "f8x 开发记录"
+title: "[技术]f8x 开发记录"
 date: 2021-12-01T23:08:03+08:00
 draft: false
 author: "r0fus0d"

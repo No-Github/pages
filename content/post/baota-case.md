@@ -1,9 +1,8 @@
 ---
-title: "宝塔 7.9.47 绕过手机号绑定"
+title: "[杂项]宝塔 7.9.47 绕过手机号绑定"
 date: 2022-10-03T12:00:00+08:00
 draft: false
 author: "r0fus0d"
-type: "test2"
 
 ---
 
