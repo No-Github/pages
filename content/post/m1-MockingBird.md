@@ -3,6 +3,7 @@ title: "m1 下配置 MockingBird 环境"
 date: 2022-04-10T13:08:03+08:00
 draft: false
 author: "r0fus0d"
+categories: ["杂项"]
 
 ---
 

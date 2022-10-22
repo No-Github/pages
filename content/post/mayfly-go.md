@@ -3,6 +3,7 @@ title: "mayfly-go审计学习"
 date: 2022-10-06T12:00:00+08:00
 draft: false
 author: "r0fus0d"
+categories: ["技术"]
 
 ---
 

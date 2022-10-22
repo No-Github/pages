@@ -3,6 +3,7 @@ title: "某oem产品审计学习"
 date: 2022-09-30T12:00:00+08:00
 draft: false
 author: "r0fus0d"
+categories: ["技术"]
 
 ---
 

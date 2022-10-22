@@ -3,6 +3,7 @@ title: "mac m1 能不能作为安全渗透工作主力机"
 date: 2022-04-05T08:08:03+08:00
 draft: false
 author: "r0fus0d"
+categories: ["杂项"]
 
 ---
 

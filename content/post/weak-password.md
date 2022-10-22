@@ -3,6 +3,7 @@ title: "弱口令案例大礼包"
 date: 2022-03-30T08:08:03+08:00
 draft: false
 author: "r0fus0d"
+categories: ["技术"]
 
 ---
 
