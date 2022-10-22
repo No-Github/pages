@@ -1,9 +1,10 @@
 ---
 
-title: "[技术]cisco设备信息泄漏漏洞案例"
+title: "cisco设备信息泄漏漏洞案例"
 date: 2022-10-21T12:00:00+08:00
 draft: false
 author: "r0fus0d & k1t9meo"
+tags: test2
 
 ---
 

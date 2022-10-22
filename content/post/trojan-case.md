@@ -1,5 +1,5 @@
 ---
-title: "[技术]trojan多用户管理部署程序审计学习"
+title: "trojan多用户管理部署程序审计学习"
 date: 2022-09-30T12:00:00+08:00
 draft: false
 author: "r0fus0d"

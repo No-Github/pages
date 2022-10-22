@@ -1,5 +1,5 @@
 ---
-title: "[杂项]Cloudflare Pages 踩坑"
+title: "Cloudflare Pages 踩坑"
 date: 2021-03-04T11:08:03+08:00
 draft: false
 author: "r0fus0d"

@@ -1,5 +1,5 @@
 ---
-title: "[技术]企业微信+腾讯IM密钥泄漏利用"
+title: "企业微信+腾讯IM密钥泄漏利用"
 date: 2022-03-31T08:08:03+08:00
 draft: false
 author: "r0fus0d"

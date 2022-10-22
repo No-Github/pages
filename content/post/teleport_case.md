@@ -1,5 +1,5 @@
 ---
-title: "[技术]teleport堡垒机审计学习"
+title: "teleport堡垒机审计学习"
 date: 2022-09-16T12:00:00+08:00
 draft: false
 author: "r0fus0d"

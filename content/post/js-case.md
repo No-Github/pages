@@ -1,5 +1,5 @@
 ---
-title: "[技术]前端攻防几个小案例"
+title: "前端攻防几个小案例"
 date: 2022-09-06T12:00:00+08:00
 draft: false
 author: "r0fus0d & kitezzzGrim"
