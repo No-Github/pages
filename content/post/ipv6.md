@@ -1,6 +1,6 @@
 ---
 title: "ipv6攻击视角"
-date: 2022-12-31T12:00:00+08:00
+date: 2022-12-29T12:00:00+08:00
 draft: false
 author: "r0fus0d"
 categories: ["技术"]
@@ -8,6 +8,10 @@ categories: ["技术"]
 ---
 
 前段时间，突然对ipv6这块的资产收集感兴趣,分享下实践出的技巧和方案。
+
+{{% admonition info "info" %}}
+本文首发 先知社区 https://xz.aliyun.com/t/11986
+{{% /admonition %}}
 
 <!--more-->
 
