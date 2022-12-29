@@ -27,7 +27,7 @@ categories: ["技术"]
 
 比如vultr,购买时选择启用ipv6地址即可
 
-![Untitled](%../../img/ipv6/Untitled.png)
+![Untitled](../../img/ipv6/Untitled.png)
 
 ### aws
 
@@ -35,42 +35,42 @@ aws的机器默认没有ipv6地址分配，要按如下步骤来开启
 
 1. vpc添加ipv6 CIDR
     
-    ![Untitled](%../../img/ipv6/Untitled%201.png)
+    ![Untitled](../../img/ipv6/Untitled%201.png)
     
 2. vpc子网分配ipv6 CIDR块
     
-    ![Untitled](%../../img/ipv6/Untitled%202.png)
+    ![Untitled](../../img/ipv6/Untitled%202.png)
     
 3. 创建ec2机器时选择自动分配ipv6 ip
     
-    ![Untitled](%../../img/ipv6/Untitled%203.png)
+    ![Untitled](../../img/ipv6/Untitled%203.png)
     
 
 这个时候ip a就可以看到ipv6地址了
 
-![Untitled](%../../img/ipv6/Untitled%204.png)
+![Untitled](../../img/ipv6/Untitled%204.png)
 
 但是到这一步你会发现获取到了ipv6地址，但无法访问任何ipv6站点，这是因为这个vpc的路由表默认没有ipv6出口路由，手动配置如下
 
-![Untitled](%../../img/ipv6/Untitled%205.png)
+![Untitled](../../img/ipv6/Untitled%205.png)
 
-![Untitled](%../../img/ipv6/Untitled%206.png)
+![Untitled](../../img/ipv6/Untitled%206.png)
 
 ### 华为云
 
 华为云和aws的步骤类似,现在vpc的subnet中开启ipv6功能,然后在创建ecs时选择分配ipv6地址
 
-![Untitled](%../../img/ipv6/Untitled%207.png)
+![Untitled](../../img/ipv6/Untitled%207.png)
 
-![Untitled](%../../img/ipv6/Untitled%208.png)
+![Untitled](../../img/ipv6/Untitled%208.png)
 
 ### 阿里云
 
 类似,vpc配置开启ipv6,创建ecs时选择ipv6的子网，创建完毕需要开通ipv6公网带宽
 
-![Untitled](%../../img/ipv6/9.png)
+![Untitled](../../img/ipv6/9.png)
 
-![Untitled](%../../img/ipv6/Untitled%2010.png)
+![Untitled](../../img/ipv6/Untitled%2010.png)
 
 然后在开启的机器上运行以下命令,获取ipv6地址
 
@@ -82,11 +82,11 @@ chmod +x ./ecs-utils-ipv6
 
 开启ipv6公网带宽
 
-![Untitled](%../../img/ipv6/11.png)
+![Untitled](../../img/ipv6/11.png)
 
-![Untitled](%../../img/ipv6/Untitled%2012.png)
+![Untitled](../../img/ipv6/Untitled%2012.png)
 
-![Untitled](%../../img/ipv6/Untitled%2013.png)
+![Untitled](../../img/ipv6/Untitled%2013.png)
 
 ## 如何让客户端访问ipv6站点
 
@@ -103,9 +103,9 @@ chmod +x ./ecs-utils-ipv6
 - ipv6.ip.sb
 - ip.sb
 
-![Untitled](%../../img/ipv6/Untitled%2014.png)
+![Untitled](../../img/ipv6/Untitled%2014.png)
 
-![Untitled](%../../img/ipv6/Untitled%2015.png)
+![Untitled](../../img/ipv6/Untitled%2015.png)
 
 正常来讲，无法访问。
 
@@ -223,20 +223,20 @@ dns:
 
 导入clash配置，再次测试访问
 
-![Untitled](%../../img/ipv6/Untitled%2016.png)
+![Untitled](../../img/ipv6/Untitled%2016.png)
 
-![Untitled](%../../img/ipv6/Untitled%2017.png)
+![Untitled](../../img/ipv6/Untitled%2017.png)
 
 到了这一步,还是不够,因为目前是基于域名的ipv6访问,如果要直接访问ipv6地址，你会发现还是访问不了,那么该如何做呢
 
 1. 首先，在浏览器中访问ipv6地址，需要在前后加括号,例如 `http://[2409:8c0c:310:314::100:38]/#/login`
 2. 在burp中的代理配置，需要改成socks5代理,不能是upstream proxy servers
 
-![Untitled](%../../img/ipv6/Untitled%2018.png)
+![Untitled](../../img/ipv6/Untitled%2018.png)
 
 现在在浏览器中访问ipv6地址，就可以了
 
-![Untitled](%../../img/ipv6/Untitled%2019.png)
+![Untitled](../../img/ipv6/Untitled%2019.png)
 
 ---
 
@@ -289,7 +289,7 @@ curl --interface 2401:c080:1400:6787::2 ipv6.ip.sb
 curl --interface 2401:c080:1400:6787::3 http://icanhazip.com/
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2020.png)
+![Untitled](../../img/ipv6/Untitled%2020.png)
 
 后来在看massdns项目的时候发现作者在freebind项目里实现了类似的需求
 
@@ -312,7 +312,7 @@ ip -6 route add local 2a00:1450:4001:81b::/64 dev enp1s0
 freebind -r 2a00:1450:4001:81b::/64 wget -qO- ipv6.wtfismyip.com/text
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2021.png)
+![Untitled](../../img/ipv6/Untitled%2021.png)
 
 **那么网站方如何防御呢？**
 
@@ -337,9 +337,9 @@ dig -t AAAA [域名]
 dig -t AAAA +short [域名]
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2022.png)
+![Untitled](../../img/ipv6/Untitled%2022.png)
 
-![Untitled](%../../img/ipv6/Untitled%2023.png)
+![Untitled](../../img/ipv6/Untitled%2023.png)
 
 使用 dnsx 进行查询
 
@@ -349,9 +349,9 @@ echo ip.sb | dnsx -silent -aaaa -resp-only
 dnsx -aaaa -o output.txt -l input.txt
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2024.png)
+![Untitled](../../img/ipv6/Untitled%2024.png)
 
-![Untitled](%../../img/ipv6/Untitled%2025.png)
+![Untitled](../../img/ipv6/Untitled%2025.png)
 
 ## 通过搜索引擎查找
 
@@ -393,7 +393,7 @@ echo hackerone.com | ./asnmap -json -silent | jq
 
 有些asn信息会有ipv6地址范围
 
-![Untitled](%../../img/ipv6/Untitled%2026.png)
+![Untitled](../../img/ipv6/Untitled%2026.png)
 
 ## ipv6地址扫描
 
@@ -418,7 +418,7 @@ make BUILD_TYPE=release
 /fi6s -p 80,8000-8100 2001:db8::/120
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2027.png)
+![Untitled](../../img/ipv6/Untitled%2027.png)
 
 实际测试速度很快，但是掩码小于/112的情况下，扫描结果数会直线下降,就很难扫出结果
 
@@ -430,7 +430,7 @@ make BUILD_TYPE=release
 echo "2001:da8:9000:e013::199:4/118" | naabu -iv 6 -p 80 -rate 4000 -retries 3 -c 30 -silent -si 60
 ```
 
-![Untitled](%../../img/ipv6/Untitled%2028.png)
+![Untitled](../../img/ipv6/Untitled%2028.png)
 
 扫描速度比fi6s慢很多,但是漏报率低，精准度高.
 
