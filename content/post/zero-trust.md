@@ -1,6 +1,6 @@
 ---
 title: "浅谈零信任"
-date: 2023-1-5T12:00:00+08:00
+date: 2023-01-05T12:00:00+08:00
 draft: false
 author: "r0fus0d"
 categories: ["技术"]
