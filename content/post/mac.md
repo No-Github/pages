@@ -42,7 +42,7 @@ cat .env | grep 'MYTHIC_ADMIN'
 
 登录后可以看到有安装Poseidon和apfell这2块payload,可以用于macos的payload生成
 
-![](./../img/mac/Untitled.png)
+![](../../img/mac/Untitled.png)
 
 ---
 
@@ -60,7 +60,7 @@ sudo pip3 install -r requirements.txt
 修改 Settings/MythicSettings.py 的配置
 ```
 
-![](./../img/mac/Untitled%201.png)
+![](../../img/mac/Untitled%201.png)
 
 输入完,会产生如下目录结构
 
@@ -81,7 +81,7 @@ sudo pip3 install -r requirements.txt
 
 当我们实际发送给目标打开时,就会发现遇到问题了
 
-![](./../img/mac/Untitled.jpeg)
+![](../../img/mac/Untitled.jpeg)
 
 这是因为Gatekeeper机制造成的
 
@@ -89,21 +89,21 @@ sudo pip3 install -r requirements.txt
 
 还有部分情况下需要在设置里进行信任才可以打开,右键打开的方式就不起作用了
 
-![](./../img/mac/Untitled%201.jpeg)
+![](../../img/mac/Untitled%201.jpeg)
 
 另外有一点，从通讯工具等应用下载的可执行文件都会提示这个框
 
-![](./../img/mac/Untitled%202.png)
+![](../../img/mac/Untitled%202.png)
 
 这也是Gatekeeper造成的，当从 Internet 下载可执行文件时，它们会标有属性`com.apple.quarantine`，该属性会在文件首次运行时触发gatekeeper。
 
-![](./../img/mac/Untitled%203.png)
+![](../../img/mac/Untitled%203.png)
 
 可以看到我们的”apk渗透测试.zip”文件来自wechat应用。
 
 但是`com.apple.quarantine`属性的添加是看应用的，比如从微信、浏览器等应用下载的文件会带这个属性，而从curl应用下载的文件是不带这个属性的.
 
-![](./../img/mac/Untitled%204.png)
+![](../../img/mac/Untitled%204.png)
 
 可以通过xattr命令删除`com.apple.quarantine`属性
 
@@ -112,7 +112,7 @@ xattr -d com.apple.quarantine feishu_shell2.dmg
 xattr -l feishu_shell2.dmg
 ```
 
-![](./../img/mac/Untitled%205.png)
+![](../../img/mac/Untitled%205.png)
 
 在macos Catalina及之前的版本可以通过`defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"`命令禁用quarantine信息提示,在Big Sur版本之后该方法不可用
 
@@ -132,7 +132,7 @@ sudo spctl --master-enable
 
 当我们用花言巧语诱导目标运行这个禁用命令后,目标在点击安装包基本就上线了(当然右键-左键运行也是可以的)
 
-![](./../img/mac/Untitled%206.png)
+![](../../img/mac/Untitled%206.png)
 
 上线后会落地1个plist 1个shell,后续结束远控可以直接删除,这个是调用osascript加载js
 
@@ -233,9 +233,9 @@ security 2>&1 > /dev/null find-generic-password -ga 'Chrome' | awk '{print $2}'
 
 在用户侧会弹框输入密码后可以看到加密密钥,这里测试直接下发命令不能触发弹框,可以通过脚本去触发
 
-![](./../img/mac/Untitled%207.png)
+![](../../img/mac/Untitled%207.png)
 
-![](./../img/mac/Untitled%208.png)
+![](../../img/mac/Untitled%208.png)
 
 触发弹框提取的脚本
 
@@ -258,7 +258,7 @@ if safeStorageKey == "":
 
 获取chrome浏览器密码文件路径，和加密密钥
 
-![](./../img/mac/Untitled%209.png)
+![](../../img/mac/Untitled%209.png)
 
 本地解密的脚本
 
@@ -298,9 +298,9 @@ print(chromeProcess("Yysssssssssssssssss=","/tmp/aaadatabase"))
 
 这里我把Login Data复制到本地/tmp/aaadatabase,避免出现****`sqlite3.OperationalError: database is locked`****报错
 
-![](./../img/mac/Untitled%2010.png)
+![](../../img/mac/Untitled%2010.png)
 
-![](./../img/mac/Untitled%2011.png)
+![](../../img/mac/Untitled%2011.png)
 
 ### Keychain
 
@@ -334,15 +334,15 @@ sudo cp frida-core.h /usr/local/include/frida-core.h
 go build -ldflags '-w -s'
 ```
 
-![](./../img/mac/Untitled%2012.png)
+![](../../img/mac/Untitled%2012.png)
 
-![](./../img/mac/Untitled%2013.png)
+![](../../img/mac/Untitled%2013.png)
 
 ### **System Integrity Protection (SIP)**
 
 但是，在实际测试时又遇到了一个问题
 
-![](./../img/mac/Untitled%2014.png)
+![](../../img/mac/Untitled%2014.png)
 
 这是因为由于SIP限制,微信开启了Hardened Runtime导致frida无法访问到微信
 
@@ -352,7 +352,7 @@ go build -ldflags '-w -s'
 
 - **文件系统保护** 系统中重要的目录与文件，不能被第三方应用程序任意修改。例如 /System /bin /sbin /usr 等目录中的文件，第三方程序即使获取了 Root 权限也不可修改。系统中所有被保护的系统目录及程序列表可查看文件`/System/Library/Sandbox/rootless.conf`
 
-    ![](./../img/mac/Untitled%2015.png)
+    ![](../../img/mac/Untitled%2015.png)
 
 
 - **运行时保护** 向一个系统进程中注入代码与修改磁盘上受保护的文件一样，都是会失败的。受系统保护的程序与使用苹果私有的 entitlements 签名的程序，在运行时都被内核标记为 restricted，在最新的系统中，开发者再也不能直接使用 task_for_pid() / processor_set_task() 来对受保护的进程进行操作了，会直接返回 EPERM 错误。
@@ -363,7 +363,7 @@ go build -ldflags '-w -s'
     ls -laO [PATH]
     ```
 
-    ![](./../img/mac/Untitled%2016.png)
+    ![](../../img/mac/Untitled%2016.png)
 
 - **内核扩展限制** 第三方开发的 kext 内核扩展必须经过签名之后放到 `/Library/Extensions` 目录下。
 
@@ -373,7 +373,7 @@ go build -ldflags '-w -s'
 
 当我们要在目标电脑上截屏或者访问用户目录下的一些文件时,又会发现有弹框了
 
-![](./../img/mac/Untitled%2017.png)
+![](../../img/mac/Untitled%2017.png)
 
 而这是mac的tcc机制造成的，tcc又是啥🤔️
 
@@ -389,7 +389,7 @@ TCC是macOS上的隐私功能，自v10.14+开始实施，当应用程序尝试�
 
 浏览“设置”-“隐私与安全”，可以查看 TCC 权限。系统 TCC 数据库位于 `/Library/Application Support/com.apple.TCC/TCC.db`，每个用户都有一个位于 `~/Library/Application Support/com.apple.TCC/TCC.db` 的 TCC 数据库。
 
-![](./../img/mac/Untitled%2018.png)
+![](../../img/mac/Untitled%2018.png)
 
 我们需要截屏录屏就是需要tcc中屏幕录制权限了。
 
