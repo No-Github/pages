@@ -13,11 +13,18 @@ weight: 50
 
   你好，我是 r0fus0d，一名安全工程师，我会在博客中分享我学习、工作路上的知识点。
 
-- 维护的开源项目
+- 我的开源项目
   - [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
   - [1earn](https://github.com/No-Github/1earn) - ffffffff0x 团队维护的安全知识框架
-  - [Pentest101](https://github.com/ffffffff0x/Pentest101) - 每周分享渗透测试的知识点
+  - [burp_nu_te_gen](https://github.com/ffffffff0x/burp_nu_te_gen) - nuclei模版生成插件
+  - [Pentest101](https://github.com/ffffffff0x/Pentest101) - 一些关于渗透测试的Tips
   - [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - 用于渗透测试的 payload 和 bypass 字典
+  - [gendict](https://github.com/ffffffff0x/gendict) - 字典生成工具
+  - [ones](https://github.com/ffffffff0x/ones) - 可用于多个网络资产测绘引擎 API 的命令行查询工具
+  - [pathtrim](https://github.com/ffffffff0x/pathtrim) - 过滤path路径
+  - [iprange](https://github.com/ffffffff0x/iprange) - 计算ip范围
+  - [JVWA](https://github.com/ffffffff0x/JVWA) - java 代码审计学习靶场
+  - [name-fuzz](https://github.com/ffffffff0x/name-fuzz) - 针对目标已知信息的字典生成工具
   - [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - 数字隐私保护与 osint 信息收集方案
 
 - 联系我
