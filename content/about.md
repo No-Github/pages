@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-08-20T21:38:52+08:00
-lastmod: 2022-07-01T21:03:52+08:00
+lastmod: 2023-10-01T21:03:52+08:00
 menu: "main"
 weight: 50
 
@@ -11,7 +11,7 @@ weight: 50
 
 - 关于我
 
-  你好，我是 r0fus0d，一名安全工程师，我会在博客中分享我学习、工作路上的知识点。
+  你好，我是 r0fus0d，一名网络安全行业的打工仔，我会在博客中分享我学习、工作路上的知识点。
 
 - 我的开源项目
   - [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
