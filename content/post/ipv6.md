@@ -168,12 +168,12 @@ dns:
   listen: 0.0.0.0:53
   ipv6: true
   default-nameserver:
-    - 114.114.114.114
+    - 223.5.5.5
     - 8.8.8.8
   enhanced-mode: fake-ip # or redir-host (not recommended)
   fake-ip-range: 198.18.0.1/16 # Fake IP addresses pool CIDR
   nameserver:
-    - 114.114.114.114 # default value
+    - 223.5.5.5 # default value
     - 8.8.8.8 # default value
     - tls://dns.rubyfish.cn:853 # DNS over TLS
     - https://1.1.1.1/dns-query # DNS over HTTPS
