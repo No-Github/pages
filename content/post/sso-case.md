@@ -8,7 +8,7 @@ categories: ["技术"]
 ---
 
 {{% admonition info "info" %}}
-首发与 wgpsec 团队内部培训
+首发于 wgpsec 团队内部培训
 {{% /admonition %}}
 
 <!--more-->
