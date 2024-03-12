@@ -117,4 +117,12 @@ sso 是需要存认证数据的，当企业人员规模特别大的时候，就�
 
 ---
 
-剩下几个案例就不放了,码不好打
+剩下几个案例就放个拓扑吧，具体图不放了,码不好打
+
+![Untitled](../../img/sso/9.png)
+
+![Untitled](../../img/sso/10.png)
+
+![Untitled](../../img/sso/11.png)
+
+![Untitled](../../img/sso/12.png)
