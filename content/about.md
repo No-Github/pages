@@ -39,6 +39,9 @@ weight: 50
 
 ![github contribution grid snake animation](https://raw.githubusercontent.com/No-Github/No-Github/output/github-contribution-grid-snake.svg)
 
+欢迎关注我的公众号
+
+![Untitled](../img/qr.png)
 
 ### 友情链接
 
