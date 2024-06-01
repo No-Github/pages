@@ -15,7 +15,7 @@ categories: ["技术"]
 
 ---
 
-## **burp favicon**
+# burp favicon
 
 [http://burp/favicon.ico](http://burp/favicon.ico) 路径有 icon 图标
 
@@ -57,7 +57,7 @@ zip -d burpsuite_pro.jar "resources/Media/favicon.ico"
 
 ---
 
-## **burp 导出证书接口**
+# burp 导出证书接口
 
 [http://burp/cert](http://burp/cert) 是下证书的接口
 
@@ -85,7 +85,7 @@ zip -d burpsuite_pro.jar "resources/Media/favicon.ico"
 
 ---
 
-## **报错页面**
+# 报错页面
 
 除此上面 2 种之外，还有个广为流传的检测方法，就是访问个不存在的页面
 
@@ -260,9 +260,11 @@ script.onerror = function () {
 
 对比访问 IP时区 与 浏览器时区来判断是否是通过代理访问
 
+如果检测是代理池/vpn会有用，如果检测是 bp 可能没啥用
+
 ---
 
-# **Yakit** **favicon**
+# Yakit favicon
 
 和 bp 类似
 
@@ -288,7 +290,7 @@ script.onerror = function () {
 
 ---
 
-# **Yakit 导出证书接口**
+# Yakit 导出证书接口
 
 和 bp 类似
 
@@ -314,7 +316,7 @@ script.onerror = function () {
 
 ---
 
-# **xray 导出证书接口**
+# xray 导出证书接口
 
 和 bp 类似
 
