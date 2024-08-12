@@ -39,6 +39,8 @@ windows server 2019
 kb5005112 --> KB5040430
 ```
 
+下载方法，访问 https://catalog.update.microsoft.com/home.aspx 搜对应的 KB号,找相应系统的包
+
 ## 08/12系统打不上的 bypass 方案
 
 有人开阿里云 win08 验证打补丁方案，这个和实际场景是不一样的，阿里云的 08 是自带的 ESU 的，但是实际生产环境里除非用破解方案不然不带 ESU 是打不上的。
