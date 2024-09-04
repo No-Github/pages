@@ -13,8 +13,31 @@ weight: 50
 - `Golang`,终端工具开发,一些开源项目的二开
 - `Java`,bp 插件,和 java 安全相关的研究
 - `Python`，主要用它进行网络爬虫开发和web开发
-- `自动化部署平台`,基于terraform实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务
-- `被动扫描平台`,参考 xray 实现的平台化的，团队协同的漏洞挖掘项目
+
+### 过往实现的小项目
+
+<details>
+  <summary>自动化部署平台,基于terraform实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务</summary>
+
+![Untitled](../img/about/map1.png)
+
+</details>
+
+<details>
+  <summary>被动扫描平台,参考 xray 实现的平台化的，团队协同的漏洞挖掘项目</summary>
+
+![Untitled](../img/about/map2.png)
+
+</details>
+
+<details>
+  <summary>敏感数据清理,参考 HackBrowserData、LaZagne以及各种各样抓取脚本，你抓啥我就清理啥，用于在已知内网失陷并横向中的情况下，批量下进行敏感数据清理。</summary>
+
+![Untitled](../img/about/map3.png)
+
+</details>
+
+- `应急响应系统`,CMDB+SOAR的结合，厂家soar不支持一些安全设备，所以自己通过模拟登录+api实现了个简单平台能联动多环境设备和服务。快速查询、快速封禁。(涉及具体产品名称所以不展示逻辑图)
 
 ### 我的开源项目
 
