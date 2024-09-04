@@ -15,7 +15,7 @@ weight: 50
 - `Python`，主要用它进行网络爬虫开发和web开发
 
 ### 过往实现的小项目
-- `自动化部署平台`,基于terraform实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务
+- `自动化部署平台`,golang 编写基于terraform调度实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务
 
 ![Untitled](../img/about/map1.png)
 
@@ -23,10 +23,11 @@ weight: 50
 
 ![Untitled](../img/about/map2.png)
 
-- `应急响应系统`,CMDB+SOAR的结合，厂家soar不支持一些安全设备，所以自己通过模拟登录+api实现了个简单平台能联动多环境设备和服务。快速查询、快速封禁。(涉及具体产品名称所以不展示逻辑图)
 - `敏感数据清理`,参考 HackBrowserData、LaZagne以及各种各样抓取脚本，你抓啥我就清理啥，用于在已知内网失陷并横向中的情况下，批量下进行敏感数据清理。
 
 ![Untitled](../img/about/map3.png)
+
+- `应急响应系统`,CMDB+SOAR的结合，厂家soar不支持一些安全设备，所以自己通过模拟登录+api实现了个简单平台能联动多环境设备和服务。快速查询、快速封禁。(涉及具体产品名称所以不列举逻辑图了)
 
 ### 我的开源项目
 
