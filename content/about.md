@@ -17,7 +17,7 @@ weight: 50
 ### 过往实现的小项目
 - `自动化部署平台`,golang 编写基于terraform调度实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务
 
-![Untitled](../img/about/map1.png)
+![Untitled](../img/about/redc.svg)
 
 - `被动扫描平台`,参考 xray 实现的平台化的，团队协同的漏洞挖掘项目
 
