@@ -182,6 +182,14 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   [privacy.youtube]
     privacyEnhanced = true
 
+[imaging]
+  [imaging.rendering]
+    hint = "imagex"
+    quality = 75
+
+[internal]
+  enableTemplates = ["*"]
+
 # see https://gohugo.io/getting-started/configuration-markup
 [markup]
   [markup.tableOfContents]

@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-08-20T21:38:52+08:00
-lastmod: 2024/03/12T21:03:52+08:00
+lastmod: 2026-03-04
 menu: "main"
 weight: 50
 
@@ -9,12 +9,15 @@ weight: 50
 
 我是 r0fus0d，一名网络安全行业的打工仔，我会在博客中分享我学习、工作路上的知识点。
 
-### 专注方向
-- `Golang`,终端工具开发,一些开源项目的二开
-- `Java`,bp 插件,和 java 安全相关的研究
-- `Python`，主要用它进行网络爬虫开发和web开发
+### 工作经历
+- 2018-2023 `Red team`,红队相关的研究和实现
+- 2024-至今 国企，安全运营负责人
 
-### 过往实现的小项目
+### 开源项目
+
+{{< github-timeline id="timeline1" >}}
+
+### 过往实现的一些项目
 - `自动化部署平台`,golang 编写基于terraform调度实现的多云管理项目，真正做到一条命令、一个按钮就能全自动部署cs，frp，supershell，arl 等大量红队服务
 
 ![Untitled](../img/about/redc.svg)
@@ -28,21 +31,6 @@ weight: 50
 ![Untitled](../img/about/map3.png)
 
 - `应急响应系统`,CMDB+SOAR的结合，厂家soar不支持一些安全设备，所以自己通过模拟登录+api实现了个简单平台能联动多环境设备和服务。快速查询、快速封禁。(涉及具体产品名称所以不列举逻辑图了)
-
-### 我的开源项目
-
-- [f8x](https://github.com/ffffffff0x/f8x) - Red/Blue team environment automation deployment tool
-- [1earn](https://github.com/No-Github/1earn) - 安全知识框架
-- [burp_nu_te_gen](https://github.com/ffffffff0x/burp_nu_te_gen) - nuclei模版生成插件
-- [Pentest101](https://github.com/ffffffff0x/Pentest101) - 一些关于渗透测试的Tips
-- [AboutSecurity](https://github.com/ffffffff0x/AboutSecurity) - 用于渗透测试的 payload 和 bypass 字典
-- [gendict](https://github.com/ffffffff0x/gendict) - 字典生成工具
-- [ones](https://github.com/ffffffff0x/ones) - 可用于多个网络资产测绘引擎 API 的命令行查询工具
-- [pathtrim](https://github.com/ffffffff0x/pathtrim) - 过滤path路径
-- [iprange](https://github.com/ffffffff0x/iprange) - 计算ip范围
-- [JVWA](https://github.com/ffffffff0x/JVWA) - java 代码审计学习靶场
-- [name-fuzz](https://github.com/ffffffff0x/name-fuzz) - 针对目标已知信息的字典生成工具
-- [Digital-Privacy](https://github.com/ffffffff0x/Digital-Privacy) - 数字隐私保护与 osint 信息收集方案
 
 ### 联系方式
 
