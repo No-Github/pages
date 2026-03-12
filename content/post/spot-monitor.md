@@ -1,3 +1,20 @@
+---
+title: "抢占式实例的自动监控与恢复"
+date: 2026-03-12T11:00:00+08:00
+draft: false
+author: "r0fus0d"
+categories: ["技术"]
+
+---
+
+{{% admonition info "info" %}}
+文章内所有功能 redc 已支持
+{{% /admonition %}}
+
+<!--more-->
+
+---
+
 # 抢占式实例的自动监控与恢复
 
 ## 这个问题的背景
